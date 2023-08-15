@@ -52,9 +52,16 @@ public class Calculadora {
                 }else{
                     System.out.println("Resultado: invalido, no es divisible en 0 ");
                 }
-                
-                
-                break;            
+                break;  
+            case 5:
+                System.out.println("Ingrese el angulo en grados : ");
+                num1 = input.nextDouble();
+                num2 = Math.toRadians(num1);
+                double res = Math.sin(num2);
+
+                System.out.println("Resultado: "+res);
+                break;
+            
         }
     }
 }
