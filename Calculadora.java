@@ -93,6 +93,17 @@ public class Calculadora {
                 res = Math.pow(num1,num2);
                 System.out.println("Resultado: "+res);
                 break;
+            case 10:
+                System.out.print("Ingrese el monto: ");
+                double monto = input.nextDouble();
+                System.out.print("Ingrese el porcentaje de IVA: ");
+                double porcentaje = input.nextDouble();
+                double iva = (monto * porcentaje) / 100;
+                System.out.println("IVA: " + iva);
+                break;
+             default:
+                System.out.println("Operación no válida.");
+                break;
         }
     }
 }
