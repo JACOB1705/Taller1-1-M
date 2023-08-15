@@ -24,28 +24,28 @@ public class Calculadora {
             case 1: 
                 System.out.println("Ingrese el primer numero: ");
                 double num1 = input.nextDouble();
-                System.out.println("Ingrese el primer numero: ");
+                System.out.println("Ingrese el segundo numero: ");
                 double num2 = input.nextDouble();
                 System.out.println("Resultado: "+(num1+num2));
                 break;
             case 2:
                 System.out.println("Ingrese el primer numero: ");
                 num1 = input.nextDouble();
-                System.out.println("Ingrese el primer numero: ");
+                System.out.println("Ingrese el segundo numero: ");
                 num2 = input.nextDouble();
                 System.out.println("Resultado: "+(num1-num2));
                 break;
             case 3:
                 System.out.println("Ingrese el primer numero: ");
                 num1 = input.nextDouble();
-                System.out.println("Ingrese el primer numero: ");
+                System.out.println("Ingrese el segundo numero: ");
                 num2 = input.nextDouble();
                 System.out.println("Resultado: "+(num1*num2));
                 break;
             case 4:
                 System.out.println("Ingrese el primer numero: ");
                 num1 = input.nextDouble();
-                System.out.println("Ingrese el primer numero: ");
+                System.out.println("Ingrese el segundo numero: ");
                 num2 = input.nextDouble();
                 if(num2!=0){
                     System.out.println("Resultado: "+(num1/num2));
@@ -61,7 +61,38 @@ public class Calculadora {
 
                 System.out.println("Resultado: "+res);
                 break;
-            
+            case 6:
+                System.out.println("Ingrese el angulo en grados : ");
+                num1 = input.nextDouble();
+                num2 = Math.toRadians(num1);
+                res = Math.cos(num2);
+
+                System.out.println("Resultado: "+res);
+                break;
+            case 7:
+                System.out.println("Ingrese el angulo en grados : ");
+                num1 = input.nextDouble();
+                num2 = Math.toRadians(num1);
+                res = Math.tan(num2);
+
+                System.out.println("Resultado: "+res);
+                break;
+            case 8:
+                System.out.println("Ingrese un numero: ");
+                num1 = input.nextDouble();
+                System.out.println("Ingrese el valor de n para la raíz enésima: ");
+                num2 = input.nextDouble();
+                res = Math.pow(num1,1/num2);
+                System.out.println("Resultado: "+res);
+                break;
+            case 9:
+                System.out.println("Ingrese la base: ");
+                num1 = input.nextDouble();
+                System.out.println("Ingrese el valor de la potencia: ");
+                num2 = input.nextDouble();
+                res = Math.pow(num1,num2);
+                System.out.println("Resultado: "+res);
+                break;
         }
     }
 }
