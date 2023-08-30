@@ -2,9 +2,10 @@ package com.mycompany.calculadora;
 import java.util.Scanner;
 
 public class Calculadora {
+    static Scanner input = new Scanner(System.in);
     public static void main (String[] args){
-        Scanner input = new Scanner(System.in);
-        
+        int opcion;
+        do{
         System.out.println("Calculadora - Operaciones disponibles:");
         System.out.println("1) Suma");
         System.out.println("2) Resta");
@@ -16,17 +17,14 @@ public class Calculadora {
         System.out.println("8) Raiz enesima");
         System.out.println("9) Potencia enesima");
         System.out.println("10) Calcular IVA");
+        System.out.println("11) Salir del sistema");
         
         System.out.println("Seleccione ua operacion a realizar (1-10): ");
-        int opcion = input.nextInt();
+        opcion = input.nextInt();
         
         switch (opcion){
             case 1 -> { 
-                System.out.println("Ingrese el primer numero: ");
-                double num1 = input.nextDouble();
-                System.out.println("Ingrese el segundo numero: ");
-                double num2 = input.nextDouble();
-                System.out.println("Resultado: "+(num1+num2));
+                suma();
             }
             case 2 -> {
                 System.out.println("Ingrese el primer numero: ");
@@ -105,5 +103,14 @@ public class Calculadora {
             }
              default -> System.out.println("Operación no válida.");
         }
+        }while(opcion!=11);
+    }
+    static void suma(){
+        System.out.println("Ingrese el primer numero: ");
+        double num1 = input.nextDouble();
+        System.out.println("Ingrese el segundo numero: ");
+        double num2 = input.nextDouble();
+        System.out.println("Resultado: "+(num1+num2));
     }
 }
+
