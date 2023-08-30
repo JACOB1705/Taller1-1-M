@@ -4,17 +4,33 @@
  */
 package com.mycompany.calculadora;
 
+import static com.mycompany.calculadora.Calculadora.coseno;
+import static com.mycompany.calculadora.Calculadora.division;
+import static com.mycompany.calculadora.Calculadora.iva;
+import static com.mycompany.calculadora.Calculadora.multiplicacion;
+import static com.mycompany.calculadora.Calculadora.potencia;
+import static com.mycompany.calculadora.Calculadora.raiz;
+import static com.mycompany.calculadora.Calculadora.resta;
+import static com.mycompany.calculadora.Calculadora.seno;
+import static com.mycompany.calculadora.Calculadora.suma;
+import static com.mycompany.calculadora.Calculadora.tangente;
+
 /**
  *
  * @author Jacobo
  */
 public class Calculadora_IU extends javax.swing.JFrame {
 
+    double num1, num2;
+    String signo;
+    
     /**
      * Creates new form Calculadora_IU
      */
     public Calculadora_IU() {
         initComponents();
+        this.setTitle("Calculadora_IU");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -163,9 +179,14 @@ public class Calculadora_IU extends javax.swing.JFrame {
         jButton12.setBackground(new java.awt.Color(229, 232, 232));
         jButton12.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jButton12.setText("-");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setBackground(new java.awt.Color(229, 232, 232));
-        jButton13.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jButton13.setFont(new java.awt.Font("Segoe UI Semibold", 0, 8)); // NOI18N
         jButton13.setText("+");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,18 +197,38 @@ public class Calculadora_IU extends javax.swing.JFrame {
         jButton14.setBackground(new java.awt.Color(229, 232, 232));
         jButton14.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jButton14.setText("x");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setBackground(new java.awt.Color(229, 232, 232));
-        jButton15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jButton15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 10)); // NOI18N
         jButton15.setText("÷");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jButton16.setBackground(new java.awt.Color(229, 232, 232));
-        jButton16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jButton16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 10)); // NOI18N
         jButton16.setText("^");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jButton17.setBackground(new java.awt.Color(229, 232, 232));
-        jButton17.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jButton17.setFont(new java.awt.Font("Segoe UI Semibold", 0, 10)); // NOI18N
         jButton17.setText("√");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jButton18.setBackground(new java.awt.Color(229, 232, 232));
         jButton18.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -228,6 +269,11 @@ public class Calculadora_IU extends javax.swing.JFrame {
         jButton23.setBackground(new java.awt.Color(229, 232, 232));
         jButton23.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jButton23.setText("IVA");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -356,23 +402,82 @@ public class Calculadora_IU extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        num2 = Double.parseDouble(display.getText());
+        
+        switch(signo){
+            case "+" -> { 
+               display.setText(Double.toString(num1+num2));
+            }
+            case "-" -> {
+               display.setText(Double.toString(num1-num2));
+            }
+            case "*" -> {
+               display.setText(Double.toString(num1*num2)); 
+            }
+            case "/" -> {
+               if(num2==0){
+                display.setText("MathError");
+               }else{
+                display.setText(Double.toString(num1/num2));  
+               }
+            }
+            case "^" -> {
+               display.setText(Double.toString(Math.pow(num1,num2)));
+            }
+            case "raiz" -> {
+               display.setText(Double.toString(Math.pow(num1,1/num2)));
+            }
+            default -> display.setText("");
+            
+            
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-       
+        num1 = Double.parseDouble(display.getText());
+        signo = "+";
+        display.setText("");
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "tan";
+        display.setText("");
+        if(num1==90){
+            display.setText("MathError");
+        }else{
+            double rad = Math.toRadians(num1);
+            double res = Math.tan(rad);
+            display.setText(Double.toString(res));  
+        }
+        
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "sen";
+        display.setText("");
+        double rad = Math.toRadians(num1);
+        double res = Math.sin(rad);
+        display.setText(Double.toString(res));
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "cos";
+        display.setText("");
+        if(num1==90){
+            display.setText("0");
+        }else{
+            double rad = Math.toRadians(num1);
+            double res = Math.cos(rad);
+            display.setText(Double.toString(res));    
+        }
+        
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -423,7 +528,52 @@ public class Calculadora_IU extends javax.swing.JFrame {
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         // TODO add your handling code here:
          display.setText("");
+         signo = "";
     }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "/";
+        display.setText("");
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "-";
+        display.setText("");
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "*";
+        display.setText("");
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "^";
+        display.setText("");
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "raiz";
+        display.setText("");
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(display.getText());
+        signo = "iva";
+        display.setText("");
+        display.setText(Double.toString((num1*19)/100));
+        
+    }//GEN-LAST:event_jButton23ActionPerformed
 
     /**
      * @param args the command line arguments
