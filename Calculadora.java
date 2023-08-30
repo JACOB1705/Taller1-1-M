@@ -27,79 +27,31 @@ public class Calculadora {
                 suma();
             }
             case 2 -> {
-                System.out.println("Ingrese el primer numero: ");
-                double num1 = input.nextDouble();
-                System.out.println("Ingrese el segundo numero: ");
-                double num2 = input.nextDouble();
-                System.out.println("Resultado: "+(num1-num2));
+                resta();
             }
             case 3 -> {
-                System.out.println("Ingrese el primer numero: ");
-                double num1 = input.nextDouble();
-                System.out.println("Ingrese el segundo numero: ");
-                double num2 = input.nextDouble();
-                System.out.println("Resultado: "+(num1*num2));
+                multiplicacion();
             }
             case 4 -> {
-                System.out.println("Ingrese el primer numero: ");
-                double num1 = input.nextDouble();
-                System.out.println("Ingrese el segundo numero: ");
-                double num2 = input.nextDouble();
-                if(num2!=0){
-                    System.out.println("Resultado: "+(num1/num2));
-                }else{
-                    System.out.println("Resultado: invalido, no es divisible en 0 ");
-                }
+                division();
             }
             case 5 -> {
-                System.out.println("Ingrese el angulo en grados : ");
-                double num1 = input.nextDouble();
-                double num2 = Math.toRadians(num1);
-                double res = Math.sin(num2);
-                System.out.println("Resultado: "+res);
+                seno();
             }
             case 6 -> {
-                System.out.println("Ingrese el angulo en grados : ");
-                double num1 = input.nextDouble();
-                double num2 = Math.toRadians(num1);
-                double res = Math.cos(num2);
-                System.out.println("Resultado: "+res);
+                coseno();
             }
             case 7 -> {
-                System.out.println("Ingrese el angulo en grados : ");
-                double num1 = input.nextDouble();
-                double num2 = Math.toRadians(num1);
-                double res = Math.tan(num2);
-                if(num1==90 || num1 ==270){
-                    System.out.println("La tangente de ese angulo es indefinida");
-                }else{
-                    System.out.println("Resultado: "+res);
-                }
-                
+                tangente();
             }
             case 8 -> {
-                System.out.println("Ingrese un numero: ");
-                double num1 = input.nextDouble();
-                System.out.println("Ingrese el valor de n para la raíz enésima: ");
-                double num2 = input.nextDouble();
-                double res = Math.pow(num1,1/num2);
-                System.out.println("Resultado: "+res);
+                raiz();
             }
             case 9 -> {
-                System.out.println("Ingrese la base: ");
-                double num1 = input.nextDouble();
-                System.out.println("Ingrese el valor de la potencia: ");
-                double num2 = input.nextDouble();
-                double res = Math.pow(num1,num2);
-                System.out.println("Resultado: "+res);
+                potencia();
             }
             case 10 -> {
-                System.out.print("Ingrese el monto: ");
-                double monto = input.nextDouble();
-                System.out.print("Ingrese el porcentaje de IVA: ");
-                double porcentaje = input.nextDouble();
-                double iva = (monto * porcentaje) / 100;
-                System.out.println("IVA: " + iva);
+                iva();
             }
              default -> System.out.println("Operación no válida.");
         }
@@ -111,6 +63,89 @@ public class Calculadora {
         System.out.println("Ingrese el segundo numero: ");
         double num2 = input.nextDouble();
         System.out.println("Resultado: "+(num1+num2));
+    }
+    
+    static void resta(){
+        System.out.println("Ingrese el primer numero: ");
+        double num1 = input.nextDouble();
+        System.out.println("Ingrese el segundo numero: ");
+        double num2 = input.nextDouble();
+        System.out.println("Resultado: "+(num1-num2));
+    }
+    
+    static void multiplicacion(){
+        System.out.println("Ingrese el primer numero: ");
+        double num1 = input.nextDouble();
+        System.out.println("Ingrese el segundo numero: ");
+        double num2 = input.nextDouble();
+        System.out.println("Resultado: "+(num1*num2));
+    }
+    
+    static void division(){
+        System.out.println("Ingrese el primer numero: ");
+        double num1 = input.nextDouble();
+        System.out.println("Ingrese el segundo numero: ");
+        double num2 = input.nextDouble();
+        if(num2!=0){
+            System.out.println("Resultado: "+(num1/num2));
+        }else{
+            System.out.println("Resultado: invalido, no es divisible en 0 ");
+        }
+    }
+    
+    static void seno(){
+        System.out.println("Ingrese el angulo en grados : ");
+        double num1 = input.nextDouble();
+        double num2 = Math.toRadians(num1);
+        double res = Math.sin(num2);
+        System.out.println("Resultado: "+res);
+    }
+    
+    static void coseno(){
+        System.out.println("Ingrese el angulo en grados : ");
+        double num1 = input.nextDouble();
+        double num2 = Math.toRadians(num1);
+        double res = Math.cos(num2);
+        System.out.println("Resultado: "+res);
+    }
+    
+    static void tangente(){
+        System.out.println("Ingrese el angulo en grados : ");
+        double num1 = input.nextDouble();
+        double num2 = Math.toRadians(num1);
+        double res = Math.tan(num2);
+        if(num1==90 || num1 ==270){
+            System.out.println("La tangente de ese angulo es indefinida");
+        }else{
+            System.out.println("Resultado: "+res);
+        }
+    }
+    
+    static void raiz(){
+        System.out.println("Ingrese un numero: ");
+        double num1 = input.nextDouble();
+        System.out.println("Ingrese el valor de n para la raíz enésima: ");
+        double num2 = input.nextDouble();
+        double res = Math.pow(num1,1/num2);
+        System.out.println("Resultado: "+res);
+    }
+    
+    static void potencia(){
+        System.out.println("Ingrese la base: ");
+        double num1 = input.nextDouble();
+        System.out.println("Ingrese el valor de la potencia: ");
+        double num2 = input.nextDouble();
+        double res = Math.pow(num1,num2);
+        System.out.println("Resultado: "+res);
+    }
+    
+    static void iva(){
+        System.out.print("Ingrese el monto: ");
+        double monto = input.nextDouble();
+        System.out.print("Ingrese el porcentaje de IVA: ");
+        double porcentaje = input.nextDouble();
+        double iva = (monto * porcentaje) / 100;
+        System.out.println("IVA: " + iva);
     }
 }
 
